@@ -17,6 +17,10 @@ class WebDAVServiceProvider extends ServiceProvider
 
             $client = new WebDAVClient($config);
 
+            if (array_key_exists('httpVersion', $config)) {
+                $client->addCurlSetting(CURLOPT_HTTP_VERSION, $config['httpVersion']);
+            }
+
             $adapter = new WebDAVAdapter($client, $pathPrefix);
 
             return new Filesystem($adapter);
