@@ -13,15 +13,16 @@ class WebDAVServiceProvider extends ServiceProvider
     public function boot()
     {
         Storage::extend('webdav', function ($app, $config) {
-            $pathPrefix = array_key_exists('pathPrefix', $config) ? $config['pathPrefix'] : null;
-
             $client = new WebDAVClient($config);
 
             if (array_key_exists('httpVersion', $config)) {
                 $client->addCurlSetting(CURLOPT_HTTP_VERSION, $config['httpVersion']);
             }
 
-            $adapter = new WebDAVAdapter($client, $pathPrefix);
+            $adapter = new WebDAVAdapter(
+                $client,
+                array_key_exists('pathPrefix', $config) ? $config['baseUri'].'/'.$config['pathPrefix'] : null
+            );
 
             return new Filesystem($adapter);
         });
