@@ -16,10 +16,16 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dhoene/flysystem-webdav"
+        }
+    ],
     "require": {
         "php": "^7.4 || ^8.0 || ^8.1",
         "illuminate/filesystem": "^8.67",
-        "league/flysystem-webdav": "^1.0"
+        "league/flysystem-webdav": "dev-master"
     },
     "require-dev": {
         "orchestra/testbench": "^6.23",
