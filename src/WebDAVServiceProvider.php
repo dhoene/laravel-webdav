@@ -21,7 +21,9 @@ class WebDAVServiceProvider extends ServiceProvider
 
             $adapter = new WebDAVAdapter(
                 $client,
-                array_key_exists('pathPrefix', $config) ? $config['baseUri'].'/'.$config['pathPrefix'] : null
+                array_key_exists('pathPrefix', $config) ? $config['baseUri'].'/'.$config['pathPrefix'] : null,
+                true,
+                $config['internalHttpPort'] ?? null
             );
 
             return new Filesystem($adapter);
