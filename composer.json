@@ -19,7 +19,7 @@
     "require": {
         "php": "^7.4 || ^8.0 || ^8.1",
         "illuminate/filesystem": "^8.67",
-        "league/flysystem-webdav": "^3.7"
+        "league/flysystem-webdav": "^1.0"
     },
     "require-dev": {
         "orchestra/testbench": "^6.23",
